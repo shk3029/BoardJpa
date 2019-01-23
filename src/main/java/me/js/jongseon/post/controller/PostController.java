@@ -3,9 +3,10 @@ package me.js.jongseon.post.controller;
 import me.js.jongseon.post.domain.Post;
 import me.js.jongseon.post.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/post")
@@ -15,29 +16,22 @@ public class PostController {
     PostService postService;
 
     @GetMapping
-    public String postList() {
-
-        List<Post> postList = postService.getPostList();
-        return "hello";
+    public Page<Post> postList(Pageable pageable) {
+        return postService.getPostList(pageable);
     }
 
     @GetMapping("/{id}")
     public void getPostDetail(@PathVariable Long id) {
-
+        postService.getPostDetail(id);
     }
 
     @PostMapping
-    public void savePost() {
-
+    public void savePost(Post post) {
+        postService.savePost(post);
     }
 
     @DeleteMapping("/{id}")
-    public String deletePost(@PathVariable Long id) {
-        return id.toString();
+    public void deletePost(@PathVariable Long id) {
+        postService.deletePost(id);
     }
-
-
-
-
-
 }
