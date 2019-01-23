@@ -10,7 +10,6 @@ public class JongseonApplication {
 
         SpringApplication.run(JongseonApplication.class, args);
 
-
     }
 
 }
