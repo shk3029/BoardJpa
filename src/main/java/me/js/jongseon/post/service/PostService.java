@@ -47,4 +47,13 @@ public class PostService {
     public void deletePost(Long id) {
         postRepository.deleteById(id);
     }
+
+    /**
+     * 게시물 찾기 (제목으로)
+     * @param title
+     * @return
+     */
+    public List<Post> getPostTitle(String title) {
+        return postRepository.findByTitle(title);
+    }
 }

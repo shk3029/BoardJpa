@@ -7,6 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping(value = "/post")
@@ -34,4 +36,10 @@ public class PostController {
     public void deletePost(@PathVariable Long id) {
         postService.deletePost(id);
     }
+
+    @GetMapping("/title")
+    public List<Post> getPostTitle(String title){
+        return postService.getPostTitle(title);
+    }
+
 }
