@@ -19,3 +19,4 @@ logging.level..org.hibernate.type.descriptor.sql = trace
 
 ### 기능
 - 단순 SELECT, INSERT, DELETE 기능
+- Page, Sort
